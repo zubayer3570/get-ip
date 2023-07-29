@@ -1,5 +1,5 @@
 const app = require("express")()
 app.get("/", (req, res) => {
-    res.send({ ip1: req.socket.remoteAddress, ip2: req.header("x-forwarded-for"), ip3: req.header("x-real-ip") })
+    res.send({ ip: req.header("x-forwarded-for")[0] })
 })
 app.listen(5000)
